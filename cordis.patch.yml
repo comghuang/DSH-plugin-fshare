@@ -1,0 +1,17 @@
+# dsh-plugin-fshare bundle patch
+#
+# 本文件是包内声明（package.json 的 dsh.bundle.patch）对应的组成补丁：
+# 当插件经官方通道安装（例如）——
+#
+#   dsh plugin --profile web add github:<你的账号>/DSH-plugin-fshare
+#
+# —— `dsh plugin add` 会在 profile 里跑 pnpm 安装，并看到本声明，把
+# `dsh-plugin-fshare` 追加进该 profile 的 dsh.profile.bundles；启动时
+# profile composer 合并本补丁，插入插件行，无需用户手改任何文件。
+#
+# ⚠ 如果该 profile 的 cordis.patch.yml 里还留着旧的手动挂载行
+# （- id: fshare / name: 'dsh-plugin-fshare'），请先删除它再走 bundle
+# 通道，否则同包双挂载会导致 /fshare/f 路由重复注册、启动失败。
+- insert:
+    - id: fshare
+      name: 'dsh-plugin-fshare'
