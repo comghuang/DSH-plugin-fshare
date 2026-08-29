@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-fshare",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "DSH web plugin: file dock above the composer — browse the session workspace (plus optional whitelisted roots), preview images/PDF, download files, and search filenames.",
   "type": "module",
   "main": "lib/index.js",
@@ -10,13 +10,15 @@
     },
     "./client": {
       "default": "./lib/client.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "lib/index.js",
     "lib/client.js",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "SECURITY.md"
   ],
   "engines": {
     "node": ">=20"
